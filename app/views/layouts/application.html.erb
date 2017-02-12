@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <title>SistemaConveniosPracticaGit</title>
+    <link href="..assets/stylesheets/bootstrap.min.css" rel="stylesheet">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ 
   </head>
 
   <body>
+  <div style='padding-top:10px;'></div>
+     <header>
+		<!--la etiqueta nav es para el menu de navegacion, la clase navbar-fixed-top me mantiene fijo el navbar en la parte superio de la pagina apesar de que este se pueda estar moviendo por un scroll, la clase navbar-inverse afecta el color a negro-->
+			<nav class="navbar navbar-fixed-top navbar-inverse">
+				<div class="container-fluid">
+				<!--primero hacemos el boton el cual se va a mostrar en dispositivos pequeños, el boton despegable-->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+						<!--es para que en los dispositivos de lectura en el boton salga menu , en los demas aparecera el boton despegable-->
+								<span class="sr-only">Menu</span>
+						<!--cada span que se pone es cada una de las rayitas que salen dentro del boton-->		
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+						</button>
+					<!--titulo-->
+					<a href="/" class="navbar-brand">
+						Sistema Convenios UNAL
+					</a>
+
+					</div>
+
+					<div class="collapse navbar-collapse" id="navbar-1">
+						<ul class="nav navbar-nav">
+            
+							<li><%=link_to 'Mensajes', messages_path %></li>
+							<li><%=link_to 'Contáctenos', contactUS_path %></li>
+							<li><%=link_to 'Acerca De Nosotros', aboutUs_path %></li>
+						
+
+						</ul>
+						<!--agregar la barra de busqueda-->
+						<form action="" class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+								<input class="form-control" type="text" placeholder="search"></input>
+
+							</div>
+							
+						</form>
+						<!--para que los botones me queden al lado derecho del screen-->
+				
+					</div>
+
+				</div>
+			</nav>
+
+		</header>
     <%= yield %>
+  
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="..assets/javascripts/bootstrap.min.js"></script> 
   </body>
+   
 </html>
